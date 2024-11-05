@@ -24,8 +24,7 @@ int	main(void)
 {
 	int	result;
 
-	result = ft_min_of_numbers(9, 81, 65, 328, -999, 751, -34, -87, -1234,
-			-995);
+	result = ft_min_of_numbers(9, 81, 65, 328, -999, 751, -34, -87, -1234, -995);
 	printf("%d\n", result);
 	return (0);
 }
