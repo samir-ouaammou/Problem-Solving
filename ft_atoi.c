@@ -1,6 +1,6 @@
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h>
 
 int	ft_atoi(const char *str)
 {
@@ -29,9 +29,10 @@ int	ft_atoi(const char *str)
 	return (res * sgn);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	if (ac >= 2)
-		printf("\natoi in c:   %d\nMy atoi:   %d\n\n", atoi(av[1]) ,ft_atoi(av[1]));
+		printf("\natoi in c:   %d\nMy atoi:   %d\n\n", atoi(av[1]),
+			ft_atoi(av[1]));
 	return (0);
 }

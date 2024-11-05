@@ -1,11 +1,11 @@
-#include <stdio.h>
 #include <stdarg.h>
+#include <stdio.h>
 
-int	ft_min_of_numbers(int count, ... )
+int	ft_min_of_numbers(int count, ...)
 {
-	va_list		list;
-	int			result;
-	int			temp;
+	va_list	list;
+	int		result;
+	int		temp;
 
 	va_start(list, count);
 	result = va_arg(list, int);
@@ -16,7 +16,6 @@ int	ft_min_of_numbers(int count, ... )
 			result = temp;
 		count--;
 	}
-	
 	va_end(list);
 	return (result);
 }
@@ -25,8 +24,8 @@ int	main(void)
 {
 	int	result;
 
-	result = ft_min_of_numbers(9,	81, 65, 328, -999, 751, -34, -87, -1234, -995);
-	printf("%d\n", result);	
-
+	result = ft_min_of_numbers(9, 81, 65, 328, -999, 751, -34, -87, -1234,
+			-995);
+	printf("%d\n", result);
 	return (0);
 }
