@@ -1,7 +1,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-void	ft_print_strings(int count, ...)
+static void	ft_print_strings(int count, ...)
 {
 	va_list	list;
 

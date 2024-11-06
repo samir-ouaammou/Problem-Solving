@@ -1,7 +1,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-int	ft_sum_of_integers(int count, ...)
+static int	ft_sum_of_integers(int count, ...)
 {
 	va_list	list;
 	int		result;

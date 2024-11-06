@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int	ft_atoi(const char *str)
+static int	ft_atoi(const char *str)
 {
 	long	res;
 	size_t	i;

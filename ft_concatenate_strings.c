@@ -2,7 +2,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-size_t  ft_strlen (const char *str)
+static size_t  ft_strlen (const char *str)
 {
     size_t  index;
 
@@ -12,13 +12,13 @@ size_t  ft_strlen (const char *str)
     return (index);
 }
 
-void    ft_putstr(char *str)
+static void    ft_putstr(char *str)
 {
     if (str)
         write (1, str, ft_strlen(str));
 }
 
-void    ft_concatenate_strings(int count, ... )
+static void    ft_concatenate_strings(int count, ... )
 {
     va_list list;
 

@@ -1,7 +1,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-int	ft_average_of_floats(int count, ...)
+static int	ft_average_of_floats(int count, ...)
 {
 	va_list	list;
 	long	result;

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-int ft_find_minimum(int count, ...)
+static int ft_find_minimum(int count, ...)
 {
     va_list list;
     int     result;
