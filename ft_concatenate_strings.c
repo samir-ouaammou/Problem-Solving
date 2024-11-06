@@ -23,7 +23,7 @@ void    ft_concatenate_strings(int count, ... )
     va_list list;
 
     va_start(list, count);
-    while (count)
+    while (count > 1)
     {
         ft_putstr(va_arg(list, char *));
         count--;
@@ -33,7 +33,7 @@ void    ft_concatenate_strings(int count, ... )
 
 int main(void)
 {
-    ft_concatenate_strings(4,   "Hi ", "I'm ", "Samir " "Ouaammou ", ":)\n");
+    ft_concatenate_strings(5,   "Hi ", "I'm ", "Samir " "Ouaammou ", ":)\n");
 
     return (0);
 }
