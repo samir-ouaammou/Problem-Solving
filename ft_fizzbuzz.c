@@ -21,7 +21,7 @@ static void ft_putnbr(int nbr)
     ft_putchar(nbr % 10 + '0');
 }
 
-static void ft_fizzbuzz(void)
+static void  ft_fizzbuzz(void)
 {
     int index;
 

@@ -2,7 +2,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-static void ft_putchar(char c)
+static void   ft_putchar(char c)
 {
     write (1, &c, 1);
 }

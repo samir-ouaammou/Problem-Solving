@@ -25,7 +25,7 @@ int main(void)
 {
     int result;
 
-    result = ft_find_minimum(5, 44, -99, -5, 88, -37, 83);
+    result = ft_find_minimum(5,    44, -99, -5, 88, -37, 83);
     printf("%d\n", result);
 
     return (0);

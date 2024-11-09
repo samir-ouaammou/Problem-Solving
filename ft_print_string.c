@@ -11,7 +11,7 @@ size_t  ft_strlen(const char *str)
     return (index);
 }
 
-void ft_putstr(const char *str)
+void   ft_putstr(const char *str)
 {
     write (1, str, ft_strlen(str));
 }

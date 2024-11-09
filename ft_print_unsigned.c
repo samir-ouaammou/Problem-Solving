@@ -30,7 +30,7 @@ void    ft_print_unsigned(char *format, ... )
     va_end(list);
 }
 
-int main(void)
+int   main(void)
 {
     ft_print_unsigned("%u %u %u %u", 1, 3, 3, 7);
     return (0);

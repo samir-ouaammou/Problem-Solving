@@ -37,7 +37,7 @@ static void	ft_print_numbers(int count, ...)
 	va_end(list);
 }
 
-int	main(void)
+int	  main(void)
 {
 	ft_print_numbers(9, 1, 22, 333, 4444, 55555, 666666, 7777777, 2147483647, -2147483648);
 	return (0);

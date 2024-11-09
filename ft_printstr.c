@@ -12,7 +12,7 @@ static size_t	ft_strlen(const char *str)
 	return (index);
 }
 
-static void	ft_putstr(const char *str)
+static void	  ft_putstr(const char *str)
 {
 	write (1, str, ft_strlen(str));
 }

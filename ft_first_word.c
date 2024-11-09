@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-static int  ft_check(char c)
+static int    ft_check(char c)
 {
     if ((c == ' ') || (c == '\t') || (c == '\n'))
         return (1);

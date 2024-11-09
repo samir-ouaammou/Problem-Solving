@@ -38,7 +38,7 @@ void    ft_print_decimal(char *format, ... )
     va_end(list);
 }
 
-int main(void)
+int   main(void)
 {
     ft_print_decimal("%d %d %d %d", 1, 3, 3, 7);
     return (0);

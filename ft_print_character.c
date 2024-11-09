@@ -27,7 +27,7 @@ void    ft_print_character(char *format, ... )
     write (1, "\n", 1);
 }
 
-int main(void)
+int   main(void)
 {
     ft_print_character("%c %c %c %c %c", "Sss", "aaa", "mmm", "iii", "rrr");
     return (0);

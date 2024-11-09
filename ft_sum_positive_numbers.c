@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-static int ft_sum_positive_numbers(int count, ...)
+static int   ft_sum_positive_numbers(int count, ...)
 {
     va_list list;
     int     result;

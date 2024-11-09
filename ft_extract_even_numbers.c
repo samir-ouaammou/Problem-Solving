@@ -19,6 +19,6 @@ void    ft_extract_even_numbers(int count, ... )
 
 int main (void)
 {
-    ft_extract_even_numbers(5,  10, 22, 33, 44, 55);
+    ft_extract_even_numbers(5,   10, 22, 33, 44, 55);
     return (0);
 }

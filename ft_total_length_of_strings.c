@@ -12,7 +12,7 @@ static int  ft_strlen(const char *str)
     return (index);
 }
 
-int ft_total_length_of_strings(int count, ... )
+int   ft_total_length_of_strings(int count, ... )
 {
     va_list list;
     int     result;

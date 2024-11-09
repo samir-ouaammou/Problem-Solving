@@ -33,7 +33,7 @@ static void    ft_concatenate_strings(int count, ... )
 
 int main(void)
 {
-    ft_concatenate_strings(5,   "Hi ", "I'm ", "Samir " "Ouaammou ", ":)\n");
+    ft_concatenate_strings(5  "Hi ", "I'm ", "Samir " "Ouaammou ", ":)\n");
 
     return (0);
 }

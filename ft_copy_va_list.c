@@ -20,6 +20,6 @@ void	ft_copy_va_list(int c, ...)
 
 int	main(void)
 {
-	ft_copy_va_list(9, 11, 22, 33, 44, 55, 66, 77, 88, 99);
+	ft_copy_va_list(9,  11, 22, 33, 44, 55, 66, 77, 88, 99);
 	return (0);
 }
