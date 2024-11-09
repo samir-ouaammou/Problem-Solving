@@ -8,7 +8,6 @@ void	ft_copy_va_list(int c, ...)
 
 	va_start(list, c);
 	va_copy(clist, list);
-    
 	while (c)
 	{
 		printf("%d\n", va_arg(clist, int));
@@ -16,6 +15,7 @@ void	ft_copy_va_list(int c, ...)
 	}
 	va_end(list);
 	va_end(clist);
+    
 }
 
 int	main(void)
