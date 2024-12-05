@@ -13,24 +13,26 @@ int	main(int ac, char **av)
 
 	if (ac < 3)	
 		return (0);
-	str = av[1];
-	av = &av[2];
 
+	if (access(av[1], F_OK) != 0)
+		return (printf("Error (%s)\n", strerror(errno)), 0);
+	if (access(av[1], X_OK) != 0)
+		return (printf("Error (%s)\n", strerror(errno)), 0);
+
+	str = strrchr(av[1], '/');
+	if (strcmp(&str[1], av[2]) != 0)
+		return (printf("Error (Commond not found)\n"));
 	pid = fork();
 	if (pid < 0)
 		return (printf("Error (%s)\n", strerror(errno)), 0);
 	if (pid == 0)
 	{
-		execve(str, av, NULL);
+		execve(av[1], &av[2], NULL);
+		printf("Error (%s)\n", strerror(errno));
+		exit(1);
 	}
 	else
-	{
-		if (access(str, F_OK) != 0)
-			return (printf("Error (%s)\n", strerror(errno)), 0);
-		if (access(str, X_OK) != 0)
-			return (printf("Error (%s)\n", strerror(errno)), 0);
-	}
-
+		wait(NULL);
 
 	return (0);
 }
