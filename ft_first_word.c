@@ -16,11 +16,9 @@ static void ft_first_word(char *str)
         return ;
         
     index = 0;
-    // Skip any leading whitespace
     while ((str[index]) && (ft_check(str[index])))
         index++;
         
-    // Print characters until whitespace is encountered
     while ((str[index]) && (!ft_check(str[index])))  
     {
         write(1, &str[index], 1);
