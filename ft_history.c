@@ -13,6 +13,7 @@ int	main(void)
 		input = readline("$> ");
 		if (!input || !input[0] || !strcmp(input, "exit"))
 			break ;
+
 		if (!strcmp(input, "history"))
 		{
 			HIST_ENTRY **history = history_list();
@@ -26,8 +27,10 @@ int	main(void)
 				}
 			}
 		}
+
 		add_history(input);
 		printf("=> %s\nlen => %lu\n", input, strlen(input));
+
 		free(input);
 		input = NULL;
 	}
