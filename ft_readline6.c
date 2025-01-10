@@ -22,7 +22,7 @@ int	main(void)
 			HIST_ENTRY **history = history_list();
 			while (history[i])
 			{
-				printf("%s\n", hestory[i]->line);
+				printf("%s\n", history[i]->line);
 				i++;
 			}
 		}
