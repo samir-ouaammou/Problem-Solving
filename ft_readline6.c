@@ -26,6 +26,8 @@ int	main(void)
 				i++;
 			}
 		}
+		if (!strcmp(input, "history -c"))
+			rl_clear_history();
 		free(input);
 		input = NULL;
 	}
