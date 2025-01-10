@@ -5,7 +5,6 @@
 # define BUFFER_SIZE 42
 #endif
 
-// وظيفة لحساب طول النص
 int	ft_strlen(const char *str)
 {
 	int	i;
@@ -18,7 +17,6 @@ int	ft_strlen(const char *str)
 	return (i);
 }
 
-// وظيفة للبحث عن '\n' في النص
 char	*ft_strchr(const char *s, int c)
 {
 	if (!s)
@@ -32,7 +30,6 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-// وظيفة لجمع النصوص
 char	*ft_strjoin(char *s1, char *s2)
 {
 	int		len1 = ft_strlen(s1), len2;
@@ -63,7 +60,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (result);
 }
 
-// وظيفة لاستخراج السطر من النص المحفوظ
+
 char	*extract_line(char **saved)
 {
 	char	*line;
@@ -87,7 +84,6 @@ char	*extract_line(char **saved)
 	return (line);
 }
 
-// الوظيفة الرئيسية
 char	*get_next_line(int fd)
 {
 	static char	*saved;
