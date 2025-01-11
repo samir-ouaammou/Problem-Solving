@@ -75,7 +75,7 @@ char	*ft_read_buffer_size(int fd, char *save)
 
 	buffer = malloc(BUFFER_SIZE + 1);
 	if (!buffer)
-		return (free(save), NULL);
+		return (free(save), save = NULL, NULL);
 
 	while (1)
 	{
