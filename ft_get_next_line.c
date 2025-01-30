@@ -38,9 +38,9 @@ char	*ft_strcat(char *s1, char *s2)
 	int	i;
 	int	j;
 
-    if (!s1 || !s2)
-        return (NULL);
-	i = ft_strlen (s1);
+	if (!s1 || !s2)
+		return (NULL);
+	i = ft_strlen(s1);
 	j = 0;
 	while (s2[j])
 	{
@@ -86,7 +86,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	ft_strcat(res, s1);
 	ft_strcat(res, s2);
 	free(s1);
-    s1 = NULL;
+	s1 = NULL;
 	return (res);
 }
 

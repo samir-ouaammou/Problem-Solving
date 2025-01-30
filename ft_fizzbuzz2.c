@@ -7,7 +7,7 @@ void	ft_putstr(char *str)
 	i = 0;
 	while (str[i])
 	{
-		write (1, &str[i], 1);
+		write(1, &str[i], 1);
 		i++;
 	}
 }
@@ -18,8 +18,7 @@ void	ft_putnbr(int nbr)
 		ft_putnbr(nbr / 10);
 	nbr = nbr % 10;
 	nbr += '0';
-	write (1, &nbr, 1);
-
+	write(1, &nbr, 1);
 }
 int	main(void)
 {
@@ -37,10 +36,9 @@ int	main(void)
 		else
 		{
 			ft_putnbr(i);
-			write (1, "\n", 1);
+			write(1, "\n", 1);
 		}
 		i++;
 	}
-
 	return (0);
 }

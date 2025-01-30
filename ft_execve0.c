@@ -1,24 +1,24 @@
+#include <errno.h>
+#include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <string.h>
-#include <fcntl.h>
-#include <errno.h>
 #include <sys/wait.h>
+#include <unistd.h>
 
 int	main(int ac, char **av)
 {
-	int	fd[2];
+	int		fd[2];
 	pid_t	pid;
 	char	buffer[1337];
-	int	len;
+	int		len;
 
 	if (pipe(fd) < 0)
 	{
 		printf("Error (%s)\n", strerror(errno));
 		exit(0);
 	}
-	len = write(fd[1], av[1], strlen(av[1]));	
+	len = write(fd[1], av[1], strlen(av[1]));
 	if (len < 0)
 	{
 		printf("Error (%s)\n", strerror(errno));
@@ -32,6 +32,5 @@ int	main(int ac, char **av)
 	}
 	av = &av[2];
 	execve(buffer, av, NULL);
-
 	return (0);
 }

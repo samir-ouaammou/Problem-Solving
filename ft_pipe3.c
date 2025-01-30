@@ -1,27 +1,25 @@
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include <errno.h>
-#include <sys/wait.h>
+#include <fcntl.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <sys/wait.h>
+#include <unistd.h>
 
 int	main(int ac, char **av)
 {
+	int		fd[2];
+	int		len;
+	char	buffer[1337];
+
 	if (ac < 3)
 		exit(0);
-
-	int	fd[2];
-	pid_t	pid1, pid2;
-	int	len;
-	char	buffer[1337];
-	
+	pid_t pid1, pid2;
 	if (pipe(fd) < 0)
 	{
 		printf("Error (%s)\n", strerror(errno));
 		exit(0);
 	}
-	
 	pid1 = fork();
 	if (pid1 > 0)
 	{
@@ -29,12 +27,11 @@ int	main(int ac, char **av)
 		write(fd[1], av[1], strlen(av[1]));
 		exit(0);
 	}
-
 	pid2 = fork();
 	if (pid2 > 0)
 	{
 		close(fd[0]);
-		write (fd[1], av[2], strlen(av[2]));
+		write(fd[1], av[2], strlen(av[2]));
 		exit(0);
 	}
 	close(fd[1]);
@@ -45,6 +42,5 @@ int	main(int ac, char **av)
 		printf("%s", buffer);
 	}
 	close(fd[0]);
-
 	return (0);
 }

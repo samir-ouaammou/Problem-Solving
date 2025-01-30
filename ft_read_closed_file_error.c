@@ -1,8 +1,8 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include <errno.h>
+#include <fcntl.h>
+#include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 int	main(void)
 {
@@ -19,6 +19,5 @@ int	main(void)
 		len = read(fd, temp, 1337);
 		printf("Error reading file (%s)\n", strerror(errno));
 	}
-
 	return (0);
 }

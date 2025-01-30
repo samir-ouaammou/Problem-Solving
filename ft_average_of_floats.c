@@ -16,7 +16,6 @@ static int	ft_average_of_floats(int count, ...)
 		count--;
 	}
 	va_end(list);
-	
 	return (result / temp);
 }
 

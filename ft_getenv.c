@@ -2,12 +2,14 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-int main(void)
+int	main(void)
 {
-    char    *path = getenv("PATH");
-    if (!path)
-        printf("(null)\n");
-    else
-        printf("path => %s\n", path);
-    return (0);
+	char	*path;
+
+	path = getenv("PATH");
+	if (!path)
+		printf("(null)\n");
+	else
+		printf("path => %s\n", path);
+	return (0);
 }

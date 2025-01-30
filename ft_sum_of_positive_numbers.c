@@ -1,7 +1,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-static long  	ft_sum_of_positive_numbers(int count, ...)
+static long	ft_sum_of_positive_numbers(int count, ...)
 {
 	va_list	list;
 	long	result;
@@ -24,7 +24,8 @@ int	main(void)
 {
 	long	result;
 
-	result = ft_sum_of_positive_numbers(9, 55, -4, 57, -45, 8, 83, -76, 423, -999);
+	result = ft_sum_of_positive_numbers(9, 55, -4, 57, -45, 8, 83, -76, 423,
+			-999);
 	printf("%ld\n", result);
 	return (0);
 }

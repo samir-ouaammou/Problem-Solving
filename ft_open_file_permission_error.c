@@ -1,7 +1,7 @@
-#include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
 #include <errno.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <unistd.h>
 
 int	main(void)
 {
@@ -12,6 +12,5 @@ int	main(void)
 		perror("Error opening file");
 	else
 		printf("file opened successfully.\n");
-
 	return (0);
 }

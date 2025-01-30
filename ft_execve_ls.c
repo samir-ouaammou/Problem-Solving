@@ -8,6 +8,5 @@ int	main(int ac, char **av)
 		av = &av[1];
 		execve("/bin/ls", av, NULL);
 	}
-	
 	return (0);
 }

@@ -1,7 +1,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-static int	 ft_max_of_numbers(int count, ...)
+static int	ft_max_of_numbers(int count, ...)
 {
 	va_list	list;
 	int		result;

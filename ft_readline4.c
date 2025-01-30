@@ -1,14 +1,15 @@
+#include <readline/history.h>
+#include <readline/readline.h>
 #include <stdio.h>
-#include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
-#include <readline/readline.h>
-#include <readline/history.h>
+#include <unistd.h>
 
 int	main(void)
 {
-	char	*input;
-	int	i;
+	char		*input;
+	int			i;
+	HIST_ENTRY	**history;
 
 	while (1)
 	{
@@ -18,7 +19,7 @@ int	main(void)
 		add_history(input);
 		if (!strcmp(input, "history"))
 		{
-			HIST_ENTRY **history = history_list();
+			history = history_list();
 			i = 1;
 			while (history[i])
 			{

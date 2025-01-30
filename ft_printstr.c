@@ -12,9 +12,9 @@ static size_t	ft_strlen(const char *str)
 	return (index);
 }
 
-static void	  ft_putstr(const char *str)
+static void	ft_putstr(const char *str)
 {
-	write (1, str, ft_strlen(str));
+	write(1, str, ft_strlen(str));
 }
 
 static void	ft_print_strings(int count, ...)
@@ -35,6 +35,7 @@ static void	ft_print_strings(int count, ...)
 
 int	main(void)
 {
-	ft_print_strings(7,   "Hi ", NULL, "I'm ", "Samir ", "\0", "Ouaammou ", ":)\n");
+	ft_print_strings(7, "Hi ", NULL, "I'm ", "Samir ", "\0", "Ouaammou ",
+			":)\n");
 	return (0);
 }

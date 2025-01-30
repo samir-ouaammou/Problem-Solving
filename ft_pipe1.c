@@ -1,21 +1,21 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include <errno.h>
-#include <string.h>
+#include <fcntl.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 int	main(int ac, char **av)
 {
+	int		pipefd[2];
+	char	buffer[1337];
+	ssize_t	len;
+
 	if (ac < 2)
 	{
 		printf("Error\n");
 		exit(0);
 	}
-	int	pipefd[2];
-	char	buffer[1337];
-	ssize_t	len;
-
 	if (pipe(pipefd) < 0)
 	{
 		printf("Error (%s)\n", strerror(errno));
@@ -36,6 +36,5 @@ int	main(int ac, char **av)
 	}
 	close(pipefd[0]);
 	printf("Result: (%s)\n", buffer);
-
 	return (0);
 }

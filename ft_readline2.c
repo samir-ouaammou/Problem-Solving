@@ -1,9 +1,9 @@
+#include <readline/history.h>
+#include <readline/readline.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <string.h>
-#include <readline/readline.h>
-#include <readline/history.h>
+#include <unistd.h>
 
 int	main(void)
 {

@@ -1,13 +1,13 @@
+#include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <fcntl.h>
 
-#ifndef	BUFFER_SIZE
-#define BUFFER_SIZE 1
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 1
 #endif
 
-int	ft_strlen(char	*str)
+int	ft_strlen(char *str)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ int	ft_strlen(char	*str)
 char	*ft_strdup(char *str)
 {
 	char	*res;
-	int	i;
+	int		i;
 
 	if (!str)
 		return (NULL);
@@ -42,8 +42,8 @@ char	*ft_strdup(char *str)
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*res;
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	if (!s1 && !s2)
 		return (NULL);
@@ -74,8 +74,8 @@ char	*ft_strjoin(char *s1, char *s2)
 char	*ft_read_buffer_size(int fd, char *save)
 {
 	char	*buffer;
-	int	len;
-	int	i;
+	int		len;
+	int		i;
 
 	buffer = malloc((BUFFER_SIZE * sizeof(char) + 1));
 	if (!buffer)
@@ -110,8 +110,8 @@ char	*ft_read_line(char **save)
 {
 	char	*line;
 	char	*next_line;
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	if (!*save)
 		return (NULL);
@@ -141,7 +141,7 @@ char	*ft_read_line(char **save)
 	return (line);
 }
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
 	static char	*save;
 	char		*line;

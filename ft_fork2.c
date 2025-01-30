@@ -1,10 +1,10 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include <errno.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <sys/wait.h>
+#include <unistd.h>
 
 int	main(int ac, char **av)
 {
@@ -13,7 +13,6 @@ int	main(int ac, char **av)
 
 	str = av[1];
 	av = &av[2];
-
 	pid = fork();
 	if (pid < 0)
 		printf("Error (%s)\n", strerror(errno));
@@ -21,6 +20,5 @@ int	main(int ac, char **av)
 		execve(str, av, NULL);
 	else
 		wait(NULL);
-
 	return (0);
 }

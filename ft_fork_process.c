@@ -1,18 +1,16 @@
+#include <errno.h>
+#include <fcntl.h>
 #include <stdio.h>
 #include <string.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <errno.h>
 #include <sys/types.h>
+#include <unistd.h>
 
 int	main(void)
 {
-	printf("Hello ");
-
 	pid_t	pids;
 
+	printf("Hello ");
 	pids = fork();
-
 	if (pids < 0)
 	{
 		perror("Error");
@@ -28,6 +26,5 @@ int	main(void)
 		printf("code main\n");
 		printf("pid main => %d\n", getpid());
 	}
-	
 	return (0);
 }

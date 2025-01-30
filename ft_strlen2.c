@@ -7,8 +7,7 @@ int	ft_strlen(char *str)
 	i = 0;
 	while (str[i])
 		i++;
-
-	return  (i);
+	return (i);
 }
 
 int	main(int ac, char **av)
@@ -17,6 +16,5 @@ int	main(int ac, char **av)
 	{
 		printf("%d", ft_strlen(av[1]));
 	}
-
 	return (0);
 }

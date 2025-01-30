@@ -1,8 +1,8 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include <errno.h>
+#include <fcntl.h>
+#include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 int	main(void)
 {
@@ -11,6 +11,5 @@ int	main(void)
 	fd = open("file.txt", O_RDONLY);
 	if (fd == -1)
 		printf("Error opening file (%s)\n", strerror(errno));
-	
 	return (0);
 }

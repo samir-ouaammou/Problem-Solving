@@ -1,28 +1,27 @@
+#include <errno.h>
+#include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <errno.h>
 #include <sys/wait.h>
+#include <unistd.h>
 
 int	main(int ac, char **av)
 {
-	int	fd[2];
+	int		fd[2];
 	pid_t	pid;
+	char	*s1[];
+	char	*s2[];
 
 	if (ac < 3)
 		return (printf("Error (%s)\n", strerror(errno)), -1);
-	
-	char	*s1[]={"ls", "-l", NULL};
-	char	*s2[]={"wc", "-l", NULL};
-	
+	s1[] = {"ls", "-l", NULL};
+	s2[] = {"wc", "-l", NULL};
 	if (pipe(fd) < 0)
-		return (printf("Error (%s)\n", strerror(errno)), -1);	
+		return (printf("Error (%s)\n", strerror(errno)), -1);
 	pid = fork();
 	if (pid < 0)
-		return (printf("Error (%s)\n", strerror(errno)), -1);	
-	
+		return (printf("Error (%s)\n", strerror(errno)), -1);
 	else if (pid == 0)
 	{
 		if (dup2(fd[1], 1) < 0)
@@ -40,6 +39,5 @@ int	main(int ac, char **av)
 		close(fd[1]);
 		execve("/bin/wc", s2, NULL);
 	}
-
 	return (0);
 }

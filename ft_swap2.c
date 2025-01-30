@@ -10,14 +10,14 @@ void	ft_swap(int *a, int *b)
 	*b = temp;
 }
 
-
 int	main(int ac, char **av)
 {
-	int a = atoi(av[1]);
-	int b = atoi(av[2]);
+	int	a;
+	int	b;
 
+	a = atoi(av[1]);
+	b = atoi(av[2]);
 	ft_swap(&a, &b);
 	printf("a = %d\nb = %d\n", a, b);
-
 	return (0);
 }

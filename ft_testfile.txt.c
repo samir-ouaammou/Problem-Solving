@@ -1,8 +1,8 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <string.h>
 #include <errno.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
 
 int	main(void)
 {
@@ -13,6 +13,5 @@ int	main(void)
 		if (access("file.txt", R_OK) == -1)
 			printf("Error (%s)\n", strerror(errno));
 	}
-
 	return (0);
 }

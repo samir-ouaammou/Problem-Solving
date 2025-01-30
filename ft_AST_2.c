@@ -18,16 +18,18 @@ t_ast	*ft_ast_new(char *value)
 	new->value = value;
 	new->left = NULL;
 	new->right = NULL;
-	return (new);
 }
 
-int	main(void)
+int	main(int ac, char **av)
 {
 	t_ast *head;
 
-	head = ft_ast_new("1337");
-	printf("%s\n", head->value);
-	free(head);
+	if (ac < 4)
+		return (1);
 	head = NULL;
+	head = ft_ast_new(av[2]);
+	head->right = ft_ast_new(av[1]);
+	head->left = ft_ast_new(av[3]);
+	printf("%s\n%s\n%s\n", head->value, head->right->value, head->left->value);
 	return (0);
 }

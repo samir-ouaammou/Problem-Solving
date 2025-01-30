@@ -1,22 +1,22 @@
+#include <errno.h>
+#include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <errno.h>
 #include <sys/wait.h>
+#include <unistd.h>
 
 int	main(int ac, char **av)
-{	
+{
+	char	*str;
+	pid_t	pid;
+	int		status;
+
 	if (ac < 2)
 		return (0);
-	
-	char	*str;
-	pid_t	pid;	
-	
 	pid = fork();
 	if (pid < 0)
-		return (0);	
+		return (0);
 	if (pid == 0)
 	{
 		str = av[1];
@@ -24,11 +24,9 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		int status;
-        	waitpid(pid, &status, 0);
+		waitpid(pid, &status, 0);
 		wait(NULL);
 		execve(str, av, NULL);
 	}
-	
 	return (0);
 }

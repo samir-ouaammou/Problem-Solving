@@ -1,21 +1,20 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <string.h>
-#include <fcntl.h>
-#include <stdlib.h>
 #include <errno.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <sys/wait.h>
+#include <unistd.h>
 
 int	main(int ac, char **av)
 {
+	int		pipefd[2];
+	char	buffer[1337];
+	int		len;
+	int		temp;
+
 	if (ac < 2)
 		exit(0);
-	
-	int	pipefd[2];
-	char	buffer[1337];
-	int	len;
-	int	temp;
-
 	if (pipe(pipefd) < 0)
 	{
 		printf("Error (%s)\n", strerror(errno));
@@ -25,12 +24,12 @@ int	main(int ac, char **av)
 	if (temp > 0)
 	{
 		close(pipefd[0]);
-		len = write (pipefd[1], av[1], strlen(av[1]));
+		len = write(pipefd[1], av[1], strlen(av[1]));
 		if (len < 0)
 		{
 			printf("Error (%s)\n", strerror(errno));
 			exit(0);
-		}	
+		}
 	}
 	else
 	{

@@ -11,7 +11,6 @@ static int	ft_atoi(const char *str)
 	i = 0;
 	while (str[i] && ((str[i] >= 9 && str[i] <= 13) || str[i] == ' '))
 		i++;
-		
 	sgn = 1;
 	if (str[i] == '+' || str[i] == '-')
 	{
@@ -19,7 +18,6 @@ static int	ft_atoi(const char *str)
 			sgn = -1;
 		i++;
 	}
-
 	res = 0;
 	while (str[i] && (str[i]) >= '0' && str[i] <= '9')
 	{
@@ -35,6 +33,6 @@ int	main(int ac, char **av)
 {
 	if (ac >= 2)
 		printf("\natoi in c:   %d\nMy atoi:   %d\n\n", atoi(av[1]),
-			ft_atoi(av[1]));
+				ft_atoi(av[1]));
 	return (0);
 }
