@@ -4,10 +4,10 @@
 
 typedef struct s_ast
 {
-	char		*value;
+	char			*value;
 	struct s_ast	*left;
 	struct s_ast	*right;
-}	t_ast;
+}					t_ast;
 
 t_ast	*ft_creat_new_node(char *str)
 {

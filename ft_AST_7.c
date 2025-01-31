@@ -4,16 +4,15 @@
 
 typedef struct s_ast
 {
-	char		*value;
+	char			*value;
 	struct s_ast	*left;
 	struct s_ast	*right;
-}	t_ast;
+}					t_ast;
 
 void	ft_print_ast(t_ast *tree, int index, char *str)
 {
 	if (!tree || !tree->value)
 		return ;
-
 	printf("%s %d =>  [%s]\n", str, index, tree->value);
 	index++;
 	ft_print_ast(tree->left, index, "left");
@@ -25,7 +24,6 @@ void	ft_free_ast(t_ast *tree)
 {
 	if (!tree)
 		return ;
-
 	ft_free_ast(tree->left);
 	ft_free_ast(tree->right);
 	if (tree->value)
@@ -60,9 +58,9 @@ t_ast	*ft_creat_new_node(char *str)
 
 t_ast	*ft_build_ast_tree(char **av, int start, int end)
 {
-	int	i;
+	int		i;
 	t_ast	*tree;
-	
+
 	i = start;
 	while (i < end)
 	{
@@ -91,13 +89,10 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		return (-1);
-	
 	tree = ft_creat_ast_tree(ac, av);
 	if (!tree)
 		return (-1);
-	
 	ft_print_ast(tree, 0, "root");
 	ft_free_ast(tree);
-
 	return (0);
 }
