@@ -58,18 +58,18 @@ t_ast	*ft_create_new_node(char *str)
 
 t_ast	*ft_build_ast_tree(char **tokens, int start, int end)
 {
-	t_ast		*node;
+	t_ast	*node;
 	int		priority;
 	int		i;
 
 	priority = 0;
 	while (priority < 3)
 	{
-
 		i = end;
 		while (i >= start)
 		{
-			if (priority == 0 && (!strcmp(tokens[i], "||") || !strcmp(tokens[i], "&&")))
+			if (priority == 0 && (!strcmp(tokens[i], "||") || !strcmp(tokens[i],
+						"&&")))
 			{
 				node = ft_create_new_node(tokens[i]);
 				node->left = ft_build_ast_tree(tokens, start, i - 1);
@@ -83,8 +83,9 @@ t_ast	*ft_build_ast_tree(char **tokens, int start, int end)
 				node->right = ft_build_ast_tree(tokens, i + 1, end);
 				return (node);
 			}
-			if (priority == 2 && (!strcmp(tokens[i], "<") || !strcmp(tokens[i], ">")
-				|| !strcmp(tokens[i], "<<") || !strcmp(tokens[i], ">>")))
+			if (priority == 2 && (!strcmp(tokens[i], "<") || !strcmp(tokens[i],
+						">") || !strcmp(tokens[i], "<<") || !strcmp(tokens[i],
+						">>")))
 			{
 				node = ft_create_new_node(tokens[i]);
 				node->left = ft_build_ast_tree(tokens, start, i - 1);
@@ -108,7 +109,7 @@ t_ast	*ft_create_ast_tree(int ac, char **av)
 int	main(int ac, char **av)
 {
 	t_ast	*tree;
-	int	index;
+	int		index;
 
 	if (ac < 2)
 		return (2);
