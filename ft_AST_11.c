@@ -125,46 +125,75 @@ t_ast	*ft_create_new_node(char *str)
 t_ast	*ft_build_ast_tree(char **cmds, int start, int end)
 {
 	t_ast	*tree;
-	int		i;
-	int		priority;
+	int	i;
+	int	parent;
+	int	priority;
+	int	brackets;
 
 	if (start > end)
 		return (NULL);
+
+	if (cmds[start][0] == '(' && cmds[end][0] == ')')
+	{
+		brackets = 1
+		i = start + 1;
+		while (i < end)
+		{
+			 if (cmds[i][0] == '(')
+                 		brackets++;
+             		else if (cmds[i][0] == ')')
+                		brackets--;
+             		if (brackets == 0)
+                 		break;
+			i++;
+		}
+		if (brackets == 1)
+                	return (ft_build_ast_tree(cmds, start + 1, end - 1));
+	}
+
+	parent = 0;
 	priority = 0;
 	while (priority < 3)
 	{
 		i = end;
 		while (i >= start)
 		{
-			if (priority == 0 && i >= 0 && cmds[i] && (!strcmp(cmds[i], "||")
-					|| !strcmp(cmds[i], "&&")))
-			{
-				tree = ft_create_new_node(cmds[i]);
-				if (!tree)
-					return (NULL);
-				tree->left = ft_build_ast_tree(cmds, start, i - 1);
-				tree->right = ft_build_ast_tree(cmds, i + 1, end);
-				return (tree);
-			}
-			if (priority == 1 && i >= 0 && cmds[i] && !strcmp(cmds[i], "|"))
-			{
-				tree = ft_create_new_node(cmds[i]);
-				if (!tree)
-					return (NULL);
-				tree->left = ft_build_ast_tree(cmds, start, i - 1);
-				tree->right = ft_build_ast_tree(cmds, i + 1, end);
-				return (tree);
-			}
-			if (priority == 2 && i >= 0 && cmds[i] && (!strcmp(cmds[i], "<")
-					|| !strcmp(cmds[i], ">") || !strcmp(cmds[i], "<<")
-					|| !strcmp(cmds[i], ">>")))
-			{
-				tree = ft_create_new_node(cmds[i]);
-				if (!tree)
-					return (NULL);
-				tree->left = ft_build_ast_tree(cmds, start, i - 1);
-				tree->right = ft_build_ast_tree(cmds, i + 1, end);
-				return (tree);
+			if (cmds[i][0] == ')')
+             		    parent++;
+             		else if (cmds[i][0] == '(')
+             		    parent--;
+             		if (parent == 0)
+             		{
+				if (priority == 0 && i >= 0 && cmds[i] && (!strcmp(cmds[i], "||")
+						|| !strcmp(cmds[i], "&&")))
+				{
+					tree = ft_create_new_node(cmds[i]);
+					if (!tree)
+						return (NULL);
+					tree->left = ft_build_ast_tree(cmds, start, i - 1);
+					tree->right = ft_build_ast_tree(cmds, i + 1, end);
+					return (tree);
+				}
+				if (priority == 1 && i >= 0 && cmds[i] && !strcmp(cmds[i], "|"))
+				{
+					tree = ft_create_new_node(cmds[i]);
+					if (!tree)
+						return (NULL);
+					tree->left = ft_build_ast_tree(cmds, start, i - 1);
+					tree->right = ft_build_ast_tree(cmds, i + 1, end);
+					return (tree);
+				}
+				if (priority == 2 && i >= 0 && cmds[i] && (!strcmp(cmds[i], "<")
+						|| !strcmp(cmds[i], ">") || !strcmp(cmds[i], "<<")
+						|| !strcmp(cmds[i], ">>")))
+				{
+					tree = ft_create_new_node(cmds[i]);
+					if (!tree)
+						return (NULL);
+					tree->left = ft_build_ast_tree(cmds, start, i - 1);
+					tree->right = ft_build_ast_tree(cmds, i + 1, end);
+					return (tree);
+				}
 			}
 			i--;
 		}
@@ -206,3 +235,4 @@ int	main(void)
 	}
 	return (0);
 }
+

@@ -1,5 +1,5 @@
-#include <readline/readline.h>
 #include <readline/history.h>
+#include <readline/readline.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -124,7 +124,7 @@ t_ast	*ft_create_new_node(char *str)
 
 t_ast	*ft_build_ast_tree(char **cmds, int start, int end)
 {
-	t_ast		*tree;
+	t_ast	*tree;
 	int		priority;
 	int		i;
 
@@ -134,7 +134,8 @@ t_ast	*ft_build_ast_tree(char **cmds, int start, int end)
 		i = end;
 		while (i >= start)
 		{
-			if (priority == 0 && cmds[i] && (!strcmp(cmds[i], "||") || !strcmp(cmds[i], "&&")))
+			if (priority == 0 && cmds[i] && (!strcmp(cmds[i], "||")
+					|| !strcmp(cmds[i], "&&")))
 			{
 				tree = ft_create_new_node(cmds[i]);
 				if (!tree)
@@ -152,8 +153,9 @@ t_ast	*ft_build_ast_tree(char **cmds, int start, int end)
 				tree->right = ft_build_ast_tree(cmds, i + 1, end);
 				return (tree);
 			}
-			else if (priority == 2 && cmds[i] && (!strcmp(cmds[i], "<") || !strcmp(cmds[i], ">")
-					|| !strcmp(cmds[i], "<<") || !strcmp(cmds[i], ">>")))
+			else if (priority == 2 && cmds[i] && (!strcmp(cmds[i], "<")
+						|| !strcmp(cmds[i], ">") || !strcmp(cmds[i], "<<")
+						|| !strcmp(cmds[i], ">>")))
 			{
 				tree = ft_create_new_node(cmds[i]);
 				if (!tree)
@@ -177,7 +179,6 @@ t_ast	*ft_create_ast_tree(char *input)
 
 	if (!input || !input[0])
 		return (NULL);
-
 	cmds = ft_split(input, ' ');
 	if (!cmds)
 		return (NULL);
